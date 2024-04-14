@@ -1,0 +1,15 @@
+## Running pipe
+
+Running benchmark with args: Namespace(host='localhost', chunks=4, batch_size=8, max_batch=10, num_decoder_layers=10, checkpoint='except_last', num_devices=4)
+Number of parameters for model: 292833040
+| batch     1 | wps 863.87 | loss 25.86 | ppl 170332326443.32
+| batch     2 | wps 873.05 | loss 20.06 | ppl 513229853.22
+| batch     3 | wps 877.82 | loss 23.80 | ppl 21684174734.15
+| batch     4 | wps 876.61 | loss 28.80 | ppl 3220691545204.76
+| batch     5 | wps 874.11 | loss 26.46 | ppl 308994324115.50
+| batch     6 | wps 872.41 | loss 24.47 | ppl 42356552210.52
+| batch     7 | wps 872.24 | loss 23.60 | ppl 17783005557.73
+| batch     8 | wps 873.50 | loss 23.36 | ppl 13905904571.76
+| batch     9 | wps 874.77 | loss 22.66 | ppl 6958136215.03
+| batch    10 | wps 871.41 | loss 22.66 | ppl 6956570343.44
+Peak memory usage for GPUs: cuda:0: 10.65GiB,
