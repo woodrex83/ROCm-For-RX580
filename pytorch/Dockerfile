@@ -77,6 +77,6 @@ RUN TORCHVISION_USE_NVJPEG=0 \
     python setup.py bdist_wheel
 RUN pip install --no-cache-dir /git/vision/dist/torchvision-*.whl
 
-RUN rm -f /git
+RUN rm -rf /git
 
 WORKDIR /app
