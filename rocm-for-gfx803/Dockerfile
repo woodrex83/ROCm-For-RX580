@@ -70,7 +70,7 @@ RUN --mount=type=cache,target=/var/cache/apt,rw --mount=type=cache,target=/var/l
         --cmake_install \
         --dependencies \
         --test_local_path /src/Tensile-rocm-${ROCM_VERSION} \
-        --architecture "gfx803;gfx900;gfx906;gfx908;gfx90a" \
+        --architecture "gfx803" \
         --logic asm_full \
         --msgpack \
     && rm -rf /var/lib/apt/lists/*
@@ -91,7 +91,7 @@ RUN cmake \
     -DCPACK_SET_DESTDIR=OFF \
     -DCPACK_PACKAGING_INSTALL_PREFIX=/opt/rocm-${ROCM_VERSION} \
     -DROCM_PATH="${ROCM_PATH}" \
-    -DAMDGPU_TARGETS="gfx803;gfx900;gfx906;gfx908;gfx90a"
+    -DAMDGPU_TARGETS="gfx803"
 
 RUN cmake --build build --target package -j$(nproc)
 
@@ -149,7 +149,7 @@ RUN cmake \
     -DBUILD_SHARED_LIBS=ON \
     -DMAGMA_ENABLE_HIP=ON \
     -DBLA_VENDOR=OpenBLAS \
-    -DGPU_TARGET="gfx803 gfx900 gfx906 gfx908 gfx90a"
+    -DGPU_TARGET="gfx803"
 
 RUN cmake --build build --target lib sparse-lib
 RUN cmake --install build
