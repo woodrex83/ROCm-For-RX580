@@ -1,12 +1,28 @@
-# Rocm-for-gfx803
+# ROCm-For-RTX580
 
 This repo hosts the docker images with ROCm backend support for extra architectures.
 *Mainly focus on gfx803.*
 However only the `Radeon RX 580 2048SP` is currently tested.
 Since 2048SP is same as RX570, RX570/580/590 should work normally
 
-# Acknowledgements
-Based on the packages built by https://github.com/xuhuisheng/rocm-gfx803
+## Version
+```
+Ubuntu 22.04
+ROCm 5.5
+
+Python 3.10
+- pytorch 2.1.2
+- torchvision 0.16.2
+```
+
+# Reference
+- https://github.com/RadeonOpenCompute/ROCm/issues/1659
+- https://github.com/xuhuisheng/rocm-gfx803
+- https://github.com/xuhuisheng/rocm-gfx803/issues/27#issuecomment-1534048619
+- https://github.com/Tokoshie/pytorch-gfx803/releases/tag/v2.1.0a0
+- https://github.com/xuhuisheng/rocm-gfx803/issues/27#issuecomment-1892611849
+- https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki
+
 
 # gfx803 Cards
     Fiji
@@ -51,28 +67,20 @@ Based on the packages built by https://github.com/xuhuisheng/rocm-gfx803
 
 ## Recommended aliases
 
-+ ~55GB space is required for both rocm and pytorch image here
++ >30GB volume is preferred for pytorch with ROCm 5.5
++ >20GB volume is preferred for ROCm 5.5 only
 
 ```shell
-# Do not use it on produtcion environment
+# Only use in development environment
 alias drun='sudo docker run -it --network=host --device=/dev/kfd --device=/dev/dri --ipc=host --shm-size 16G --group-add video --cap-add=SYS_PTRACE --security-opt seccomp=unconfined -v $(pwd):/current'
 
 # rocm 5.5.1 only
 cd rocm-for-grx803
-docker build -t rocm-for-grx803:latest .
-drun --rm rocm-for-gfx803
+docker build -t rocm-for-grx803-dev:latest .
+drun --rm rocm-for-gfx803-dev
 
 # pytorch with rocm 5.5.1
-cd pytorch-for-gfx803
-docker build -t pytorch-for-gfx803:latest .
-drun --rm pytorch-for-gfx803
+cd pytorch
+docker build -t pytorch-for-gfx803-dev:latest .
+drun --rm pytorch-for-gfx803-dev
 ```
-
-## Version
-+ Ubuntu: `22.04`
-+ Python: `3.10`
-+ ROCm: `5.5.1`
-+ Torch: `2.0.1`
-+ Torchvision: `0.15.2`
-+ Torchaudio: `2.0.2`
-+ opencv: `4.8.0.76`
