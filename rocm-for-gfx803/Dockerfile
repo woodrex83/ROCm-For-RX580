@@ -143,7 +143,7 @@ WORKDIR /src/magma-${MAGMA_VERSION}
 RUN cmake \
     -B build \
     -G Ninja \
-    -DCMAKE_CXX_COMPILER=/opt/rocm/bin/hipcc \
+    -DCMAKE_CXX_COMPILER=/opt/rocm-${ROCM_VERSION}/bin/hipcc \
     -DCMAKE_BUILD_TYPE=Release \
     -DCMAKE_INSTALL_PREFIX=/usr \
     -DBUILD_SHARED_LIBS=ON \
