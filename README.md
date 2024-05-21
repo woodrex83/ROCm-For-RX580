@@ -15,6 +15,11 @@ Python 3.10
 - torchvision 0.16.2
 ```
 
+Image | Description 
+--- | ---
+[woodrex/rocm-for-gfx803-dev](https://hub.docker.com/r/woodrex/rocm-for-gfx803-dev) | Base image with ROCm 5.5 (including rocBLAS and MAGMA) 
+[woodrex/pytorch-for-gfx803-dev](woodrex/pytorch-for-gfx803-dev) | Images for PyTorch with ROCm backend support
+
 # Reference
 - https://github.com/RadeonOpenCompute/ROCm/issues/1659
 - https://github.com/xuhuisheng/rocm-gfx803
