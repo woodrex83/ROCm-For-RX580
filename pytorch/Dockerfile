@@ -1,4 +1,4 @@
-FROM rocm-for-gfx803-dev:latest
+FROM woodrex/rocm-for-gfx803-dev:1.0.0
 
 ENV UBUNTU_VERSION=22.04
 ENV MAGMA_VERSION=2.7.1
