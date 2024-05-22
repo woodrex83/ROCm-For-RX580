@@ -18,7 +18,7 @@ Python 3.10
 Image | Description 
 --- | ---
 [woodrex/rocm-for-gfx803-dev](https://hub.docker.com/r/woodrex/rocm-for-gfx803-dev) | Base image with ROCm 5.5 (including rocBLAS and MAGMA) 
-[woodrex/pytorch-for-gfx803-dev](woodrex/pytorch-for-gfx803-dev) | Images for PyTorch with ROCm backend support
+[woodrex/pytorch-for-gfx803-dev](https://hub.docker.com/r/woodrex/pytorch-for-gfx803-dev) | Images for PyTorch with ROCm backend support
 
 # Reference
 - https://github.com/RadeonOpenCompute/ROCm/issues/1659
@@ -68,7 +68,7 @@ Image | Description
         Radeon RX 560D
         Radeon RX 460
 
-# Usage
+# Build Local
 
 ## Recommended aliases
 
