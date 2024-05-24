@@ -19,7 +19,7 @@ Image | Description
 --- | ---
 [woodrex/rocm-for-gfx803-dev](https://hub.docker.com/r/woodrex/rocm-for-gfx803-dev) | Base image with ROCm 5.5 (including rocBLAS and MAGMA) 
 [woodrex/pytorch-for-gfx803-dev](https://hub.docker.com/r/woodrex/pytorch-for-gfx803-dev) | Images for PyTorch with ROCm backend support
-[woodrex/sd-webui-for-gfx803](https://hub.docker.com/r/woodrex/woodrex/sd-webui-for-gfx803) | Images for PyTorch with ROCm backend support
+[woodrex/sd-webui-for-gfx803](https://hub.docker.com/r/woodrex/sd-webui-for-gfx803) | Images for SD
 
 # Reference
 - https://github.com/RadeonOpenCompute/ROCm/issues/1659
