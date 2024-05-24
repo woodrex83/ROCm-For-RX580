@@ -19,6 +19,7 @@ Image | Description
 --- | ---
 [woodrex/rocm-for-gfx803-dev](https://hub.docker.com/r/woodrex/rocm-for-gfx803-dev) | Base image with ROCm 5.5 (including rocBLAS and MAGMA) 
 [woodrex/pytorch-for-gfx803-dev](https://hub.docker.com/r/woodrex/pytorch-for-gfx803-dev) | Images for PyTorch with ROCm backend support
+[woodrex/sd-webui-for-gfx803](https://hub.docker.com/r/woodrex/woodrex/sd-webui-for-gfx803) | Images for PyTorch with ROCm backend support
 
 # Reference
 - https://github.com/RadeonOpenCompute/ROCm/issues/1659
@@ -68,24 +69,23 @@ Image | Description
         Radeon RX 560D
         Radeon RX 460
 
-# Build Local
 
-## Recommended aliases
+# Recommended aliases
 
-+ >30GB volume is preferred for pytorch with ROCm 5.5
++ >30GB volume is preferred for pytorch/Stable-Diffusion
 + >20GB volume is preferred for ROCm 5.5 only
 
+## Run SD container 
 ```shell
 # Only use in development environment
-alias drun='sudo docker run -it --network=host --device=/dev/kfd --device=/dev/dri --ipc=host --shm-size 16G --group-add video --cap-add=SYS_PTRACE --security-opt seccomp=unconfined -v $(pwd):/current'
+# dockerx pointed to docker mounted storage
+alias drun='sudo docker run -it --network=host --device=/dev/kfd --device=/dev/dri --ipc=host --shm-size 16G --group-add video --cap-add=SYS_PTRACE --security-opt seccomp=unconfined -v $HOME/dockerx:/dockerx -v $(pwd):/current'
 
-# rocm 5.5.1 only
-cd rocm-for-grx803
-docker build -t rocm-for-grx803-dev:latest .
-drun --rm rocm-for-gfx803-dev
+cd SD-webui
 
-# pytorch with rocm 5.5.1
-cd pytorch
-docker build -t pytorch-for-gfx803-dev:latest .
-drun --rm pytorch-for-gfx803-dev
+# Add --medvram if it is 8GB VRAM or lower
+drun --rm -v $(pwd)/cache:/root/.cache \
+    -v $(pwd)/data:/stable-diffusion-webui/data \
+    -v $(pwd)/outputs:/stable-diffusion-webui/outputs \
+    woodrex/sd-webui-for-gfx803:1.0.0
 ```
