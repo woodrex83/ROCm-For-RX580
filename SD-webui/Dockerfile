@@ -6,7 +6,6 @@ RUN pip install -r /git/stable-diffusion-webui-rx580/requirements_versions.txt
 
 WORKDIR /git/stable-diffusion-webui-rx580
 VOLUME /root/.cache
-RUN mkdir -p /stable-diffusion-webui/data
 VOLUME /stable-diffusion-webui/data
 VOLUME /stable-diffusion-webui/outputs
 
