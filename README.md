@@ -77,15 +77,9 @@ Image | Description
 
 ## Run SD container 
 ```shell
-# Only use in development environment
-# dockerx pointed to docker mounted storage
-alias drun='sudo docker run -it --network=host --device=/dev/kfd --device=/dev/dri --ipc=host --shm-size 16G --group-add video --cap-add=SYS_PTRACE --security-opt seccomp=unconfined -v $HOME/dockerx:/dockerx -v $(pwd):/current'
-
 cd SD-webui
+sudo docker compose up
 
-# Add --medvram if it is 8GB VRAM or lower
-drun --rm -v $(pwd)/cache:/root/.cache \
-    -v $(pwd)/data:/stable-diffusion-webui/data \
-    -v $(pwd)/outputs:/stable-diffusion-webui/outputs \
-    woodrex/sd-webui-for-gfx803:1.0.0
+# Stop container
+sudo docker compose down
 ```
