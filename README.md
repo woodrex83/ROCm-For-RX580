@@ -1,4 +1,4 @@
-# ROCm-For-RTX580
+# ROCm-For-RX580
 
 This repo hosts the docker images with ROCm backend support for extra architectures.
 *Mainly focus on gfx803.*
