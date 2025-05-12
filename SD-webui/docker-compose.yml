@@ -1,4 +1,4 @@
-ersion: '3'
+version: '3'
 services:
   sd-webui:
     image: woodrex/sd-webui-for-gfx803:latest
