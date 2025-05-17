@@ -1,64 +1,74 @@
 # ROCm-For-RX580
 
-This repo hosts the docker images with ROCm backend support for extra architectures.
-*Mainly focus on gfx803.*
-However only the `Radeon RX 580 2048SP` is currently tested.
-Since 2048SP is same as RX570, RX570/580/590 should work normally
+> [!CAUTION]
+> #### Prevent ROCm SegFaults on your Linux Distro
+> This repo hosts an *unofficial* docker images with ROCm backend support for extra architectures.
+
+> [!NOTE]
+> #### This is still a developmental version. PyTorch and ROCm are functioning properly, but Stable Diffusion is not working well.
+> Only `Radeon RX` and `R9 Fury` is currently tested. RX460/470/480/570/580/590 and R9 should work normally.
+
 
 ## Version
 ```
-Ubuntu 22.04
-ROCm 5.5
-
+Ubuntu 22.04 
+ROCm 6.3.4
 Python 3.10
-- pytorch 2.1.2
-- torchvision 0.16.2
+Pytorch 2.6.0
 ```
 
 Image | Description 
 --- | ---
-[woodrex/rocm-for-gfx803-dev](https://hub.docker.com/r/woodrex/rocm-for-gfx803-dev) | Base image with ROCm 5.5 (including rocBLAS and MAGMA) 
-[woodrex/pytorch-for-gfx803-dev](https://hub.docker.com/r/woodrex/pytorch-for-gfx803-dev) | Images for PyTorch with ROCm backend support
-[woodrex/sd-webui-for-gfx803](https://hub.docker.com/r/woodrex/sd-webui-for-gfx803) | Images for SD
+[woodrex/rocm634-gfx803](https://hub.docker.com/r/woodrex/rocm634-gfx803) | Base image with ROCm 6.3.4 (including rocBLAS 6.3.3) 
+[woodrex/rocm634-torch26-gfx803](https://hub.docker.com/r/woodrex/rocm634-torch26-gfx803) | Images for PyTorch with ROCm backend support
 
-# Reference
-- https://github.com/RadeonOpenCompute/ROCm/issues/1659
-- https://github.com/xuhuisheng/rocm-gfx803
-- https://github.com/xuhuisheng/rocm-gfx803/issues/27#issuecomment-1534048619
-- https://github.com/Tokoshie/pytorch-gfx803/releases/tag/v2.1.0a0
-- https://github.com/xuhuisheng/rocm-gfx803/issues/27#issuecomment-1892611849
-- https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki
+---
 
+## Recommended aliases
 
-# gfx803 Cards
++ 50GB volume is preferred for pytorch/Stable-Diffusion.
++ 30GB volume is preferred for ROCm only.
++ You can manually build all the images in the sequence of `base` -> `pytorch` -> `SD`, or you can download the `rocm634-torch26-gfx803` image from Docker Hub and then build the SD image using Docker Compose.
+
+## Run SD container 
+```shell
+cd SD
+sudo docker compose build
+sudo docker compose up
+
+# Stop container
+sudo docker compose down
+```
+
+## Supported
     Fiji
         Fiji XT
             Radeon Instinct MI8
-            Radeon R9 Fury X
-            Radeon R9 Fury
-            Radeon R9 Nano
-        Capsaicin XT
-            FirePro S9300x2
+            Radeon R9 Fury X (Tested)
+            Radeon R9 Fury (Tested)
+            Radeon R9 Nano 
+        Capsaicin XT (Not Confirm)
+            FirePro S9300x2 
             Radeon Pro Duo 2016
     Polaris 30
-        Radeon RX 590
+        Radeon RX 590 (Tested)
     Polaris 20
-        Radeon Pro 580
-        Radeon RX 580
+        Radeon Pro 580 (Tested)
+        Radeon RX 580 (Tested)
         Radeon Pro 575
         Radeon Pro 570
-        Radeon RX 570
+        Radeon RX 570 (Tested)
     Polaris 10
         Radeon Instinct MI6
         Radeon Pro Duo 2017
         Radeon Pro WX 7100
         Radeon Pro WX 7100 Mobile
-        Radeon RX 480
+        Radeon RX 480 (Tested)
         Radeon Pro WX 5100
-        Radeon RX 470
+        Radeon RX 470 (Tested)
     Polaris 21
         Radeon Pro 560X
-        Radeon Pro 560
+        Radeon Pro 560 (Tested)
         Radeon Pro 555X
         Radeon Pro 555
     Polaris 11
@@ -67,19 +77,4 @@ Image | Description
         Radeon Pro WX 4150 Mobile
         Radeon Pro WX 4130 Mobile
         Radeon RX 560D
-        Radeon RX 460
-
-
-# Recommended aliases
-
-+ >30GB volume is preferred for pytorch/Stable-Diffusion
-+ >20GB volume is preferred for ROCm 5.5 only
-
-## Run SD container 
-```shell
-cd SD-webui
-sudo docker compose up
-
-# Stop container
-sudo docker compose down
-```
+        Radeon RX 460 (Tested)
