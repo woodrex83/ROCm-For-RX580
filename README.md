@@ -4,8 +4,9 @@
 > #### This repo hosts an *unofficial* docker images with ROCm backend support for extra architectures.
 
 > [!NOTE]
-> #### This is still a developmental version. PyTorch and ROCm are functioning properly, but Stable Diffusion is not working well.
+> #### This is still a developmental version. PyTorch and ROCm are functioning properly, but Stable Diffusion is not working well (Prefer SDXL).
 > Only `Radeon RX` and `R9 Fury` is currently tested. RX460/470/480/570/580/590 and R9 should work normally.
+> Stable version on branch `rocm55`.
 
 > [!CAUTION]
 > #### Prevent ROCm SegFaults on your Linux Distro
