@@ -1,8 +1,8 @@
 # ROCm-For-RX580
 
 > [!CAUTION]
-> #### Prevent ROCm SegFaults on your Linux Distro
-> This repo hosts an *unofficial* docker images with ROCm backend support for extra architectures.
+> #### This repo hosts an *unofficial* docker images with ROCm backend support for extra architectures.
+
 
 > [!NOTE]
 > #### This is still a developmental version. PyTorch and ROCm are functioning properly, but Stable Diffusion is not working well.
