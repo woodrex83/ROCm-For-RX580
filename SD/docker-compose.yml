@@ -1,0 +1,33 @@
+version: '3.8'
+services:
+  sd-webui:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: woodrex/rocm634-torch26-sd-webui-gfx803
+    container_name: sd-webui
+    privileged: true
+    network_mode: host
+    devices:
+      - /dev/kfd:/dev/kfd
+      - /dev/dri:/dev/dri
+    ipc: host
+    shm_size: 16G
+    user: root
+    group_add:
+      - video
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - seccomp=unconfined
+    environment:
+      - HSA_OVERRIDE_GFX_VERSION=8.0.3
+      - PYTORCH_ROCM_ARCH=gfx803
+      - PYTHONUNBUFFERED=1
+    ports:
+      - "7860:7860"
+    volumes:
+      - ./models:/stable-diffusion-webui/models
+      - ./extensions:/stable-diffusion-webui/extensions
+      - ./outputs:/stable-diffusion-webui/outputs
+      - ./cache:/root/.cache
