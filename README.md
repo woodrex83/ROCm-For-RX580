@@ -1,13 +1,15 @@
 # ROCm-For-RX580
 
-> [!CAUTION]
+> [!NOTE]
 > #### This repo hosts an *unofficial* docker images with ROCm backend support for extra architectures.
-
 
 > [!NOTE]
 > #### This is still a developmental version. PyTorch and ROCm are functioning properly, but Stable Diffusion is not working well.
 > Only `Radeon RX` and `R9 Fury` is currently tested. RX460/470/480/570/580/590 and R9 should work normally.
 
+> [!CAUTION]
+> #### Prevent ROCm SegFaults on your Linux Distro
+> According to [gfx803_rocm](https://github.com/robertrosenbusch/gfx803_rocm), Linux-Kernel-Versions 6.12 and 6.13 crashed with SegFaults
 
 ## Version
 ```
