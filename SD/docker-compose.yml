@@ -4,7 +4,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: woodrex/rocm634-torch26-sd-webui-gfx803
+    image: woodrex/rocm612-torch24-sd-webui-gfx803
     container_name: sd-webui
     privileged: true
     network_mode: host

@@ -1,4 +1,4 @@
-FROM woodrex/rocm634-torch26-gfx803
+FROM woodrex/rocm612-torch24-gfx803
 
 ENV HSA_OVERRIDE_GFX_VERSION=8.0.3
 ENV PYTORCH_ROCM_ARCH=gfx803

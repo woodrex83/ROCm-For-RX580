@@ -4,9 +4,8 @@
 > #### This repo hosts an *unofficial* docker images with ROCm backend support for extra architectures.
 
 > [!NOTE]
-> #### This is still a developmental version. PyTorch and ROCm are functioning properly, but Stable Diffusion is not working well (Prefer SDXL).
+> #### This is still a developmental version. PyTorch and ROCm are functioning properly, but Stable Diffusion is not working well.
 > Only `Radeon RX` and `R9 Fury` is currently tested. RX460/470/480/570/580/590 and R9 should work normally.
-> Stable version on branch `rocm55`.
 
 > [!CAUTION]
 > #### Prevent ROCm SegFaults on your Linux Distro
@@ -15,23 +14,24 @@
 ## Version
 ```
 Ubuntu 22.04 
-ROCm 6.3.4
+
+ROCm 6.1.2
 Python 3.10
-Pytorch 2.6.0
+Pytorch 2.4.0
 ```
 
 Image | Description 
 --- | ---
-[woodrex/rocm634-gfx803](https://hub.docker.com/r/woodrex/rocm634-gfx803) | Base image with ROCm 6.3.4 (including rocBLAS 6.3.3) 
-[woodrex/rocm634-torch26-gfx803](https://hub.docker.com/r/woodrex/rocm634-torch26-gfx803) | Images for PyTorch with ROCm backend support
+[woodrex/rocm612-gfx803](https://hub.docker.com/r/woodrex/rocm612-gfx803) | Base image with ROCm 6.1.2 (including rocBLAS 6.3.3) 
+[woodrex/rocm612-torch24-gfx803](https://hub.docker.com/r/woodrex/rocm612-torch24-gfx803) | Images for PyTorch with ROCm backend support
+[woodrex/rocm612-torch24-sd-webui-gfx803](https://hub.docker.com/r/woodrex/rocm612-torch24-sd-webui-gfx803)
 
 ---
 
 ## Recommended aliases
 
-+ 50GB volume is preferred for pytorch/Stable-Diffusion.
++ 80GB volume is preferred for pytorch/Stable-Diffusion.
 + 30GB volume is preferred for ROCm only.
-+ You can manually build all the images in the sequence of `base` -> `pytorch` -> `SD`, or you can download the `rocm634-torch26-gfx803` image from Docker Hub and then build the SD image using Docker Compose.
 
 ## Run SD container 
 ```shell
