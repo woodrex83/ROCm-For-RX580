@@ -30,4 +30,5 @@ services:
       - ./models:/stable-diffusion-webui/models
       - ./extensions:/stable-diffusion-webui/extensions
       - ./outputs:/stable-diffusion-webui/outputs
+      - ./embeddings:/stable-diffusion-webui/embeddings
       - ./cache:/root/.cache
